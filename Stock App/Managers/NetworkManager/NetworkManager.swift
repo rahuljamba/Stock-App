@@ -7,12 +7,7 @@
 
 import Foundation
 
-enum NetworkError: String, Error {
-    
-    case invalidUrl = "invalidUrl"
-    case invalidData = "invalidData"
-    
-}
+
 
 actor NetworkManager {
     
