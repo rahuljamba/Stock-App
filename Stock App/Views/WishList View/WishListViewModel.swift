@@ -21,4 +21,10 @@ class WishListViewModel {
     @MainActor func fetchWishStockList() {
         wishStockList = manager.getItems()
     }
+    
+    @MainActor func deleteWishListStock(_ item: WishListStockModel) {
+        manager.deleteItem(item: item)
+        fetchWishStockList()
+    }
+    
 }

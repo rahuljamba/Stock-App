@@ -39,6 +39,14 @@ class DataBaseManager {
     }
 
     // Delete Data
+    @MainActor func deleteItem<T: PersistentModel>(item: T) {
+        withAnimation {
+            modelContainer.mainContext.delete(item)
+            saveContext()
+        }
+    }
+    
+    // Delete All Data
     @MainActor func deleteItems<T: PersistentModel>(items: [T]) {
         withAnimation {
             for item in items {

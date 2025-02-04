@@ -16,11 +16,25 @@ struct WishStockCellView: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            Text(stock.sid)
-                .font(.title2).bold()
-            
-            Text(stock.price.description)
-                .font(.subheadline)
+            HStack {
+                Text(stock.sid)
+                    .font(.title2).bold()
+                
+                Text(stock.price.description)
+                    .font(.subheadline)
+                
+                Spacer()
+                
+                Button {
+                    viewModel.deleteWishListStock(stock)
+                } label: {
+                    Image(systemName: "trash.fill")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 15, height: 7)
+
+                }
+            }
 
             Divider()
             
@@ -37,10 +51,10 @@ struct WishStockCellView: View {
             AddStockPricingView(placeholder: "Date", price: stock.date.stockDate)
         }
         .padding()
-            .frame(maxWidth: .infinity, minHeight: 100, alignment: .leading)
-            .background(Color.smoke.gradient)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .padding(.horizontal, 10)
+        .frame(maxWidth: .infinity, minHeight: 100, alignment: .leading)
+        .background(Color.smoke.gradient)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .padding(.horizontal, 10)
     }
 }
 
