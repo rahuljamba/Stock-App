@@ -55,7 +55,13 @@ struct StockCellView: View {
         }
         .padding()
         .frame(maxWidth: .infinity, minHeight: 100, alignment: .leading)
-        .background(Color.smoke.gradient)
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: [Color.green.opacity(1.5), Color.smoke]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .padding(.horizontal, 10)
             
