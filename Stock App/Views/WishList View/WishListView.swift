@@ -33,8 +33,11 @@ struct WishListView: View {
                 }
                 .listStyle(.plain)
             }
-            
-            
+        }
+        .alert(isPresented: $viewModel.showAlertView) {
+            Alert(title: Text("Are you sure ?"), message: Text("This item is permanent remove from your wish list."), primaryButton: .default(Text("Cancel")), secondaryButton: .default(Text("Delete"), action: {
+                viewModel.deleteWishListStock(viewModel.deleteWishStock!)
+            }))
         }
         .onAppear {
             viewModel.fetchWishStockList()

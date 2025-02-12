@@ -14,6 +14,7 @@ struct WishStockCellView: View {
     let stock: WishListStockModel
     
     var body: some View {
+        
         VStack(alignment: .leading) {
             
             HStack {
@@ -26,13 +27,19 @@ struct WishStockCellView: View {
                 Spacer()
                 
                 Button {
-                    viewModel.deleteWishListStock(stock)
+                    
+                    if viewModel.deleteWishStock != stock {
+                        viewModel.deleteWishStock = stock
+                    }
+                    
+                    viewModel.showAlertView.toggle()
+                    
                 } label: {
                     Image(systemName: "trash.fill")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 15, height: 7)
-
+                    
                 }
             }
 

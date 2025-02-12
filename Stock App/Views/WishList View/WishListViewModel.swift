@@ -10,7 +10,10 @@ import SwiftUI
 @Observable
 class WishListViewModel {
     
+    var showAlertView: Bool = false
+    
     private(set) var wishStockList: [WishListStockModel] = []
+    var deleteWishStock: WishListStockModel?
     
     var manager: DataBaseManager
     
